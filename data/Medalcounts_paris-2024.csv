@@ -1,0 +1,207 @@
+"","country","iso_a3","slug_game","competed","total_pop_july","Medals.1","Medals.2","Medals.3","Medals.4","Medals.5","Medals.team","Medals.1.team","Medals.total","Medals.unique"
+"1","Afghanistan","AFG","paris-2024",TRUE,42647000,0,0,0,0,0,0,0,0,0
+"2","Albania","ALB","paris-2024",TRUE,2792000,2,0,0,0,0,0,2,2,2
+"3","Algeria","DZA","paris-2024",TRUE,46814000,3,0,0,0,0,0,3,3,3
+"4","American Samoa","ASM","paris-2024",TRUE,47000,0,0,0,0,0,0,0,0,0
+"5","Andorra","AND","paris-2024",TRUE,82000,0,0,0,0,0,0,0,0,0
+"6","Angola","AGO","paris-2024",TRUE,37886000,0,0,0,0,0,0,0,0,0
+"7","Antigua and Barbuda","ATG","paris-2024",TRUE,94000,0,0,0,0,0,0,0,0,0
+"8","Argentina","ARG","paris-2024",TRUE,45696000,1,0,0,0,0,2,3,3,3
+"9","Armenia","ARM","paris-2024",TRUE,2974000,4,0,0,0,0,0,4,4,4
+"10","Aruba","ABW","paris-2024",TRUE,108000,0,0,0,0,0,0,0,0,0
+"11","Australia","AUS","paris-2024",TRUE,26713000,28,2,2,0,0,15,43,53,47
+"12","Austria","AUT","paris-2024",TRUE,9121000,4,0,0,0,0,1,5,5,5
+"13","Azerbaijan","AZE","paris-2024",TRUE,10337000,7,0,0,0,0,0,7,7,7
+"14","Bahamas","BHS","paris-2024",TRUE,401000,0,0,0,0,0,0,0,0,0
+"15","Bahrain","BHR","paris-2024",TRUE,1607000,4,0,0,0,0,0,4,4,4
+"16","Bangladesh","BGD","paris-2024",TRUE,173562000,0,0,0,0,0,0,0,0,0
+"17","Barbados","BRB","paris-2024",TRUE,282000,0,0,0,0,0,0,0,0,0
+"18","Belarus","BLR","paris-2024",FALSE,9057000,0,0,0,0,0,0,0,0,0
+"19","Belgium","BEL","paris-2024",TRUE,11739000,8,1,0,0,0,0,8,10,9
+"20","Belize","BLZ","paris-2024",TRUE,417000,0,0,0,0,0,0,0,0,0
+"21","Benin","BEN","paris-2024",TRUE,14463000,0,0,0,0,0,0,0,0,0
+"22","Bermuda","BMU","paris-2024",TRUE,65000,0,0,0,0,0,0,0,0,0
+"23","Bhutan","BTN","paris-2024",TRUE,792000,0,0,0,0,0,0,0,0,0
+"24","Bolivia","BOL","paris-2024",TRUE,12413000,0,0,0,0,0,0,0,0,0
+"25","Bosnia and Herzegovina","BIH","paris-2024",TRUE,3164000,0,0,0,0,0,0,0,0,0
+"26","Botswana","BWA","paris-2024",TRUE,2521000,1,0,0,0,0,1,2,2,2
+"27","Brazil","BRA","paris-2024",TRUE,211999000,12,0,1,0,0,5,17,20,18
+"28","British Virgin Islands","VGB","paris-2024",TRUE,39000,0,0,0,0,0,0,0,0,0
+"29","Brunei","BRN","paris-2024",TRUE,463000,0,0,0,0,0,0,0,0,0
+"30","Bulgaria","BGR","paris-2024",TRUE,6758000,7,0,0,0,0,0,7,7,7
+"31","Burkina Faso","BFA","paris-2024",TRUE,23549000,0,0,0,0,0,0,0,0,0
+"32","Burundi","BDI","paris-2024",TRUE,14048000,0,0,0,0,0,0,0,0,0
+"33","Cambodia","KHM","paris-2024",TRUE,17639000,0,0,0,0,0,0,0,0,0
+"34","Cameroon","CMR","paris-2024",TRUE,29124000,0,0,0,0,0,0,0,0,0
+"35","Canada","CAN","paris-2024",TRUE,39742000,14,1,0,1,0,7,21,27,23
+"36","Cape Verde","CPV","paris-2024",TRUE,525000,1,0,0,0,0,0,1,1,1
+"37","Cayman Islands","CYM","paris-2024",TRUE,74000,0,0,0,0,0,0,0,0,0
+"38","Central African Republic","CAF","paris-2024",TRUE,5331000,0,0,0,0,0,0,0,0,0
+"39","Chad","TCD","paris-2024",TRUE,20299000,0,0,0,0,0,0,0,0,0
+"40","Chile","CHL","paris-2024",TRUE,19765000,2,0,0,0,0,0,2,2,2
+"41","China","CHN","paris-2024",TRUE,1419321000,57,2,1,0,0,27,84,91,87
+"42","Taiwan","TWN","paris-2024",TRUE,23214000,6,0,0,0,0,1,7,7,7
+"43","Colombia","COL","paris-2024",TRUE,52886000,4,0,0,0,0,0,4,4,4
+"44","Comoros","COM","paris-2024",TRUE,867000,0,0,0,0,0,0,0,0,0
+"45","Republic of the Congo","COG","paris-2024",TRUE,6333000,0,0,0,0,0,0,0,0,0
+"46","Democratic Republic of the Congo","COD","paris-2024",TRUE,109276000,0,0,0,0,0,0,0,0,0
+"47","Cook Islands","COK","paris-2024",TRUE,14000,0,0,0,0,0,0,0,0,0
+"48","Costa Rica","CRI","paris-2024",TRUE,5130000,0,0,0,0,0,0,0,0,0
+"49","Ivory Coast","CIV","paris-2024",TRUE,31934000,1,0,0,0,0,0,1,1,1
+"50","Croatia","HRV","paris-2024",TRUE,3875000,5,0,0,0,0,2,7,7,7
+"51","Cuba","CUB","paris-2024",TRUE,10980000,9,0,0,0,0,0,9,9,9
+"52","Cyprus","CYP","paris-2024",TRUE,1358000,1,0,0,0,0,0,1,1,1
+"53","Czech Republic","CZE","paris-2024",TRUE,10736000,3,0,0,0,0,2,5,5,5
+"54","Denmark","DNK","paris-2024",TRUE,5977000,5,0,0,0,0,4,9,9,9
+"55","Djibouti","DJI","paris-2024",TRUE,1169000,0,0,0,0,0,0,0,0,0
+"56","Dominica","DMA","paris-2024",TRUE,66000,1,0,0,0,0,0,1,1,1
+"57","Dominican Republic","DOM","paris-2024",TRUE,11428000,3,0,0,0,0,0,3,3,3
+"58","Ecuador","ECU","paris-2024",TRUE,18135000,4,0,0,0,0,1,5,5,5
+"59","Egypt","EGY","paris-2024",TRUE,116538000,3,0,0,0,0,0,3,3,3
+"60","El Salvador","SLV","paris-2024",TRUE,6338000,0,0,0,0,0,0,0,0,0
+"61","Equatorial Guinea","GNQ","paris-2024",TRUE,1893000,0,0,0,0,0,0,0,0,0
+"62","Eritrea","ERI","paris-2024",TRUE,3536000,0,0,0,0,0,0,0,0,0
+"63","Estonia","EST","paris-2024",TRUE,1361000,0,0,0,0,0,0,0,0,0
+"64","Eswatini","SWZ","paris-2024",TRUE,1243000,0,0,0,0,0,0,0,0,0
+"65","Ethiopia","ETH","paris-2024",TRUE,132060000,4,0,0,0,0,0,4,4,4
+"66","Fiji","FJI","paris-2024",TRUE,929000,0,0,0,0,0,1,1,1,1
+"67","Finland","FIN","paris-2024",TRUE,5617000,0,0,0,0,0,0,0,0,0
+"68","France","FRA","paris-2024",TRUE,66549000,43,0,0,1,0,17,60,64,61
+"69","Gabon","GAB","paris-2024",TRUE,2539000,0,0,0,0,0,0,0,0,0
+"70","The Gambia","GMB","paris-2024",TRUE,2760000,0,0,0,0,0,0,0,0,0
+"71","Georgia","GEO","paris-2024",TRUE,3808000,7,0,0,0,0,0,7,7,7
+"72","Germany","DEU","paris-2024",TRUE,84552000,18,0,0,0,0,15,33,33,33
+"73","Ghana","GHA","paris-2024",TRUE,34427000,0,0,0,0,0,0,0,0,0
+"74","Great Britain","GBR","paris-2024",TRUE,69138000,33,2,0,0,0,28,61,65,63
+"75","Greece","GRC","paris-2024",TRUE,10048000,6,0,0,0,0,2,8,8,8
+"76","Grenada","GRD","paris-2024",TRUE,117000,2,0,0,0,0,0,2,2,2
+"77","Guam","GUM","paris-2024",TRUE,168000,0,0,0,0,0,0,0,0,0
+"78","Guatemala","GTM","paris-2024",TRUE,18406000,2,0,0,0,0,0,2,2,2
+"79","Guinea","GIN","paris-2024",TRUE,14755000,0,0,0,0,0,0,0,0,0
+"80","Guinea-Bissau","GNB","paris-2024",TRUE,2201000,0,0,0,0,0,0,0,0,0
+"81","Guyana[GUY]","GUY","paris-2024",TRUE,831000,0,0,0,0,0,0,0,0,0
+"82","Haiti","HTI","paris-2024",TRUE,11773000,0,0,0,0,0,0,0,0,0
+"83","Honduras","HND","paris-2024",TRUE,10826000,0,0,0,0,0,0,0,0,0
+"84","Hong Kong","HKG","paris-2024",TRUE,7415000,2,1,0,0,0,0,2,4,3
+"85","Hungary","HUN","paris-2024",TRUE,9676000,11,1,0,0,0,6,17,19,18
+"86","Iceland","ISL","paris-2024",TRUE,393000,0,0,0,0,0,0,0,0,0
+"87","India","IND","paris-2024",TRUE,1450936000,4,0,0,0,0,2,6,6,6
+"88","Indonesia","IDN","paris-2024",TRUE,283488000,3,0,0,0,0,0,3,3,3
+"89","Iran","IRN","paris-2024",TRUE,91568000,12,0,0,0,0,0,12,12,12
+"90","Iraq","IRQ","paris-2024",TRUE,46042000,0,0,0,0,0,0,0,0,0
+"91","Ireland","IRL","paris-2024",TRUE,5255000,3,1,0,0,0,2,5,7,6
+"92","Israel","ISR","paris-2024",TRUE,9387000,6,0,0,0,0,1,7,7,7
+"93","Italy","ITA","paris-2024",TRUE,59343000,22,1,0,0,0,16,38,40,39
+"94","Jamaica","JAM","paris-2024",TRUE,2839000,6,0,0,0,0,0,6,6,6
+"95","Japan","JPN","paris-2024",TRUE,123753000,31,0,1,0,0,11,42,45,43
+"96","Jordan","JOR","paris-2024",TRUE,11553000,1,0,0,0,0,0,1,1,1
+"97","Kazakhstan","KAZ","paris-2024",TRUE,20593000,6,0,0,0,0,1,7,7,7
+"98","Kenya","KEN","paris-2024",TRUE,56433000,7,2,0,0,0,0,7,11,9
+"99","Kiribati","KIR","paris-2024",TRUE,135000,0,0,0,0,0,0,0,0,0
+"100","North Korea","PRK","paris-2024",TRUE,26499000,4,0,0,0,0,2,6,6,6
+"101","South Korea","KOR","paris-2024",TRUE,51718000,22,0,0,0,0,10,32,32,32
+"102","Kosovo","XKX","paris-2024",TRUE,1685000,2,0,0,0,0,0,2,2,2
+"103","Kuwait","KWT","paris-2024",TRUE,4935000,0,0,0,0,0,0,0,0,0
+"104","Kyrgyzstan","KGZ","paris-2024",TRUE,7186000,6,0,0,0,0,0,6,6,6
+"105","Laos","LAO","paris-2024",TRUE,7770000,0,0,0,0,0,0,0,0,0
+"106","Latvia","LVA","paris-2024",TRUE,1872000,0,0,0,0,0,0,0,0,0
+"107","Lebanon","LBN","paris-2024",TRUE,5806000,0,0,0,0,0,0,0,0,0
+"108","Lesotho","LSO","paris-2024",TRUE,2337000,0,0,0,0,0,0,0,0,0
+"109","Liberia","LBR","paris-2024",TRUE,5613000,0,0,0,0,0,0,0,0,0
+"110","Libya","LBY","paris-2024",TRUE,7381000,0,0,0,0,0,0,0,0,0
+"111","Liechtenstein","LIE","paris-2024",TRUE,40000,0,0,0,0,0,0,0,0,0
+"112","Lithuania","LTU","paris-2024",TRUE,2859000,3,0,0,0,0,1,4,4,4
+"113","Luxembourg","LUX","paris-2024",TRUE,673000,0,0,0,0,0,0,0,0,0
+"114","Madagascar","MDG","paris-2024",TRUE,31965000,0,0,0,0,0,0,0,0,0
+"115","Malawi","MWI","paris-2024",TRUE,21655000,0,0,0,0,0,0,0,0,0
+"116","Malaysia","MYS","paris-2024",TRUE,35558000,1,0,0,0,0,1,2,2,2
+"117","Maldives","MDV","paris-2024",TRUE,528000,0,0,0,0,0,0,0,0,0
+"118","Mali","MLI","paris-2024",TRUE,24479000,0,0,0,0,0,0,0,0,0
+"119","Malta","MLT","paris-2024",TRUE,540000,0,0,0,0,0,0,0,0,0
+"120","Marshall Islands","MHL","paris-2024",TRUE,38000,0,0,0,0,0,0,0,0,0
+"121","Mauritania","MRT","paris-2024",TRUE,5169000,0,0,0,0,0,0,0,0,0
+"122","Mauritius","MUS","paris-2024",TRUE,1271000,0,0,0,0,0,0,0,0,0
+"123","Mexico","MEX","paris-2024",TRUE,130861000,3,0,0,0,0,2,5,5,5
+"124","Federated States of Micronesia","FSM","paris-2024",TRUE,113000,0,0,0,0,0,0,0,0,0
+"125","Moldova","MDA","paris-2024",TRUE,3035000,4,0,0,0,0,0,4,4,4
+"126","Monaco","MCO","paris-2024",TRUE,39000,0,0,0,0,0,0,0,0,0
+"127","Mongolia","MNG","paris-2024",TRUE,3476000,1,0,0,0,0,0,1,1,1
+"128","Montenegro","MNE","paris-2024",TRUE,638000,0,0,0,0,0,0,0,0,0
+"129","Morocco","MAR","paris-2024",TRUE,38081000,1,0,0,0,0,1,2,2,2
+"130","Mozambique","MOZ","paris-2024",TRUE,34632000,0,0,0,0,0,0,0,0,0
+"131","Myanmar","MMR","paris-2024",TRUE,54500000,0,0,0,0,0,0,0,0,0
+"132","Namibia","NAM","paris-2024",TRUE,3030000,0,0,0,0,0,0,0,0,0
+"133","Nauru","NRU","paris-2024",TRUE,12000,0,0,0,0,0,0,0,0,0
+"134","Nepal","NPL","paris-2024",TRUE,29651000,0,0,0,0,0,0,0,0,0
+"135","Netherlands","NLD","paris-2024",TRUE,18229000,13,1,1,0,0,16,29,34,31
+"136","New Zealand","NZL","paris-2024",TRUE,5214000,8,1,0,0,0,10,18,20,19
+"137","Nicaragua","NIC","paris-2024",TRUE,6916000,0,0,0,0,0,0,0,0,0
+"138","Niger","NER","paris-2024",TRUE,27032000,0,0,0,0,0,0,0,0,0
+"139","Nigeria","NGA","paris-2024",TRUE,232679000,0,0,0,0,0,0,0,0,0
+"140","North Macedonia","MKD","paris-2024",TRUE,1823000,0,0,0,0,0,0,0,0,0
+"141","Norway","NOR","paris-2024",TRUE,5577000,6,0,0,0,0,2,8,8,8
+"142","Oman","OMN","paris-2024",TRUE,5282000,0,0,0,0,0,0,0,0,0
+"143","Pakistan","PAK","paris-2024",TRUE,251269000,1,0,0,0,0,0,1,1,1
+"144","Palau","PLW","paris-2024",TRUE,18000,0,0,0,0,0,0,0,0,0
+"145","Palestine","PSE","paris-2024",TRUE,5495000,0,0,0,0,0,0,0,0,0
+"146","Panama","PAN","paris-2024",TRUE,4516000,1,0,0,0,0,0,1,1,1
+"147","Papua New Guinea","PNG","paris-2024",TRUE,10577000,0,0,0,0,0,0,0,0,0
+"148","Paraguay","PRY","paris-2024",TRUE,6929000,0,0,0,0,0,0,0,0,0
+"149","Peru","PER","paris-2024",TRUE,34218000,1,0,0,0,0,0,1,1,1
+"150","Philippines","PHL","paris-2024",TRUE,115844000,2,1,0,0,0,0,2,4,3
+"151","Poland","POL","paris-2024",TRUE,38539000,7,0,0,0,0,3,10,10,10
+"152","Portugal","PRT","paris-2024",TRUE,10425000,3,0,0,0,0,1,4,4,4
+"153","Puerto Rico","PRI","paris-2024",TRUE,3242000,2,0,0,0,0,0,2,2,2
+"154","Qatar","QAT","paris-2024",TRUE,3048000,1,0,0,0,0,0,1,1,1
+"155","Romania","ROU","paris-2024",TRUE,19015000,2,1,0,0,0,5,7,9,8
+"156","Russia","RUS","paris-2024",FALSE,144820000,0,0,0,0,0,0,0,0,0
+"157","Rwanda","RWA","paris-2024",TRUE,14257000,0,0,0,0,0,0,0,0,0
+"158","Saint Kitts and Nevis","KNA","paris-2024",TRUE,47000,0,0,0,0,0,0,0,0,0
+"159","Saint Lucia","LCA","paris-2024",TRUE,180000,0,1,0,0,0,0,0,2,1
+"160","Saint Vincent and the Grenadines","VCT","paris-2024",TRUE,101000,0,0,0,0,0,0,0,0,0
+"161","Samoa","WSM","paris-2024",TRUE,218000,0,0,0,0,0,0,0,0,0
+"162","San Marino","SMR","paris-2024",TRUE,34000,0,0,0,0,0,0,0,0,0
+"163","São Tomé and Príncipe","STP","paris-2024",TRUE,236000,0,0,0,0,0,0,0,0,0
+"164","Saudi Arabia","SAU","paris-2024",TRUE,33963000,0,0,0,0,0,0,0,0,0
+"165","Senegal","SEN","paris-2024",TRUE,18502000,0,0,0,0,0,0,0,0,0
+"166","Serbia","SRB","paris-2024",TRUE,6736000,2,0,0,0,0,3,5,5,5
+"167","Seychelles","SYC","paris-2024",TRUE,130000,0,0,0,0,0,0,0,0,0
+"168","Sierra Leone","SLE","paris-2024",TRUE,8642000,0,0,0,0,0,0,0,0,0
+"169","Singapore","SGP","paris-2024",TRUE,5832000,1,0,0,0,0,0,1,1,1
+"170","Slovakia","SVK","paris-2024",TRUE,5507000,1,0,0,0,0,0,1,1,1
+"171","Slovenia","SVN","paris-2024",TRUE,2119000,3,0,0,0,0,0,3,3,3
+"172","Solomon Islands","SLB","paris-2024",TRUE,819000,0,0,0,0,0,0,0,0,0
+"173","Somalia","SOM","paris-2024",TRUE,19009000,0,0,0,0,0,0,0,0,0
+"174","South Africa","ZAF","paris-2024",TRUE,64007000,2,1,0,0,0,2,4,6,5
+"175","Spain","ESP","paris-2024",TRUE,47911000,8,0,0,0,0,10,18,18,18
+"176","Sri Lanka","LKA","paris-2024",TRUE,23104000,0,0,0,0,0,0,0,0,0
+"177","Sudan","SDN","paris-2024",TRUE,50449000,0,0,0,0,0,0,0,0,0
+"178","South Sudan","SSD","paris-2024",TRUE,11943000,0,0,0,0,0,0,0,0,0
+"179","Suriname","SUR","paris-2024",TRUE,634000,0,0,0,0,0,0,0,0,0
+"180","Sweden","SWE","paris-2024",TRUE,10607000,5,1,0,0,0,4,9,11,10
+"181","Switzerland","CHE","paris-2024",TRUE,8922000,6,0,0,0,0,2,8,8,8
+"182","Syria","SYR","paris-2024",TRUE,24673000,0,0,0,0,0,0,0,0,0
+"183","Tajikistan","TJK","paris-2024",TRUE,10591000,3,0,0,0,0,0,3,3,3
+"184","Tanzania","TZA","paris-2024",TRUE,68560000,0,0,0,0,0,0,0,0,0
+"185","Thailand","THA","paris-2024",TRUE,71668000,6,0,0,0,0,0,6,6,6
+"186","East Timor","TLS","paris-2024",TRUE,1401000,0,0,0,0,0,0,0,0,0
+"187","Togo","TGO","paris-2024",TRUE,9515000,0,0,0,0,0,0,0,0,0
+"188","Tonga","TON","paris-2024",TRUE,104000,0,0,0,0,0,0,0,0,0
+"189","Trinidad and Tobago","TTO","paris-2024",TRUE,1508000,0,0,0,0,0,0,0,0,0
+"190","Tunisia","TUN","paris-2024",TRUE,12277000,3,0,0,0,0,0,3,3,3
+"191","Turkey","TUR","paris-2024",TRUE,87474000,6,0,0,0,0,2,8,8,8
+"192","Turkmenistan","TKM","paris-2024",TRUE,7494000,0,0,0,0,0,0,0,0,0
+"193","Tuvalu","TUV","paris-2024",TRUE,10000,0,0,0,0,0,0,0,0,0
+"194","Uganda","UGA","paris-2024",TRUE,50015000,2,0,0,0,0,0,2,2,2
+"195","Ukraine","UKR","paris-2024",TRUE,37860000,10,0,0,0,0,2,12,12,12
+"196","United Arab Emirates","ARE","paris-2024",TRUE,11027000,0,0,0,0,0,0,0,0,0
+"197","United States","USA","paris-2024",TRUE,345427000,69,7,3,0,0,34,103,126,113
+"198","Uruguay","URY","paris-2024",TRUE,3387000,0,0,0,0,0,0,0,0,0
+"199","Uzbekistan","UZB","paris-2024",TRUE,36362000,13,0,0,0,0,0,13,13,13
+"200","Vanuatu","VUT","paris-2024",TRUE,328000,0,0,0,0,0,0,0,0,0
+"201","Venezuela","VEN","paris-2024",TRUE,28406000,0,0,0,0,0,0,0,0,0
+"202","Vietnam","VNM","paris-2024",TRUE,100988000,0,0,0,0,0,0,0,0,0
+"203","Virgin Islands","VIR","paris-2024",TRUE,85000,0,0,0,0,0,0,0,0,0
+"204","Yemen","YEM","paris-2024",TRUE,40583000,0,0,0,0,0,0,0,0,0
+"205","Zambia","ZMB","paris-2024",TRUE,21315000,1,0,0,0,0,0,1,1,1
+"206","Zimbabwe","ZWE","paris-2024",TRUE,16634000,0,0,0,0,0,0,0,0,0
