@@ -10,8 +10,22 @@ br.cc <- bayesrank_run(medal_file = medal.file,
                          burn_in   = 10000,
                          model_run = 30000,
                          thin      = 30,
-                         n_chains  = 4)
+                         n_chains  = 1)
 ) 
 
 #run this function to check chains 
 check_convergence(br.cc)
+
+
+br.cc$posterior_ranks #posterior distribution of ranks
+
+br.cc$posterior_prob #posterior distribution of medals per capita
+
+br.cc$probs #summary of posterior distribution of medals per capita
+
+br.cc$ranks
+
+br.cc$results #table of bayesian ranks and other common ranking metrics, medal counts population,....
+
+br.cc$sig #matrix of countries with logical TRUE/FALSE indicating wheter significantly different in bayesian rank , NA if not medal winner
+

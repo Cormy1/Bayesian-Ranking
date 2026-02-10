@@ -139,7 +139,11 @@ rank_mcmc <- function(processed_mcmc, # this one
                           select(iso_a3))
 
 
-processed_mcmc[colnames(processed_mcmc) %in% non_medals$iso_a3] <- NA # setting nonmedal winning countries to 0 probability so as not to affect rank
+  # non_medals
+  cols_to_na <- intersect(colnames(processed_mcmc), non_medals$iso_a3)
+  
+  # Set whole columns to NA
+  processed_mcmc[, cols_to_na] <- NA_real_
   
   # ranking medal winners
   t(apply(processed_mcmc, 1, function(x) {
@@ -334,12 +338,12 @@ bayesrank_run <- function(medal_file, model, control = list(), alpha = 0.05) {
   processed <- tidy_mcmc(mcmc, medal_file)
   post_ranks <- rank_mcmc(processed, medal_file)
   probs <- post_prob_summary(processed)
-  ranks <- post_rank_rank(post_ranks)
+  ranks <- post_rank_rank(post_ranks) #strangely empty
   res <- results(medal_file, probs, ranks)
   sig <- compute_rank_sig_matrix(post_ranks, alpha)
   
-  list(medal_file = medal_file, mcmc = mcmc, processed = processed, 
-       post_ranks = post_ranks, probs = probs, ranks = ranks, results = res, sig = sig)
+  list(medal_file = medal_file, mcmc = mcmc, posterior_prob = processed, 
+       posterior_ranks = post_ranks, probs = probs, ranks = ranks, results = res, sig = sig)
 }
 
 check_convergence <- function(bayesian_ranking) {
