@@ -31,7 +31,7 @@ make_model_list <- function(medalcounts, unique.model = FALSE) {
     m1_col <- grep("^(Medals\\.1\\.team|Medals\\.1)$", colnames(df), value = TRUE)[1]
     if (length(m1_col)) medal_data_list$M1 <- as.numeric(df[[m1_col]])
     
-    # M2, M3, M4, M5, ... dynamically
+    # M2, M3, M4, M5, 
     multi_cols <- grep("^Medals\\.[2-9][0-9]*$", colnames(df), value = TRUE)
     for (col in multi_cols) {
       k <- as.numeric(sub("^Medals\\.([0-9]+)$", "\\1", col))
@@ -88,7 +88,6 @@ tidy_mcmc <- function(mcmc, medalcounts) {
   # Coerce to mcmc.list
   if (inherits(mcmc, "mcmc")) mcmc <- coda::mcmc.list(mcmc)
   
-  # Extract samples - USE INTEGER INDICES NOT LOGICAL
   chain_dfs <- lapply(mcmc, as.data.frame)
   psims <- do.call(rbind, chain_dfs)
   
@@ -99,7 +98,7 @@ tidy_mcmc <- function(mcmc, medalcounts) {
   has_p <- any(grepl("^p\\[", cols))
   
   if (has_p1) {
-    # Conditional model - use integer indices
+    # Conditional model
     p_indices <- grep("^p[1-9][0-9]*\\[", cols)
     post_pc <- matrix(0, nrow(psims), nrow(medalcounts))
     
@@ -111,7 +110,7 @@ tidy_mcmc <- function(mcmc, medalcounts) {
     }
     
   } else if (has_p) {
-    # Unique model - INTEGER INDICES ONLY
+    # Unique model
     p_indices <- grep("^p\\[", cols)
     post_pc <- psims[, p_indices, drop = FALSE]
     
@@ -120,7 +119,7 @@ tidy_mcmc <- function(mcmc, medalcounts) {
   }
   
   colnames(post_pc) <- medalcounts$iso_a3[1:ncol(post_pc)]
-  post_pc  # Return as matrix/data.frame
+  post_pc  # Return as matrix/df
 }
 
 # 4) Function to rank each posterior draw 
@@ -147,7 +146,7 @@ rank_mcmc <- function(processed_mcmc, # this one
   
   # ranking medal winners
   t(apply(processed_mcmc, 1, function(x) {
-    rank(-x, ties.method = "first", na.last = "keep") # bets not average or whatever variant of ths
+    rank(-x, ties.method = "first", na.last = "keep") 
   }))
 }
 
