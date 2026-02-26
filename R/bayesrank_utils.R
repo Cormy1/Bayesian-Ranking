@@ -300,12 +300,11 @@ bayesrank_run <- function(medal_file, model, control = list(), alpha = 0.05) {
   
   unique_model <- model == "beta.unique"
   
-  # DETECT max medals BEFORE making data list
+ 
   df <- read.csv(medal_file) %>% filter(competed == TRUE)
   
   if (!unique_model) {
     medal_cols <- grep("^Medals\\.[2-9][0-9]*$", colnames(df), value = TRUE)
-    # ONLY count columns with actual data
     max_medals <- 1  # at least M1
     for (col in medal_cols) {
       if (sum(as.numeric(df[[col]]), na.rm = TRUE) > 0) {
@@ -338,7 +337,7 @@ bayesrank_run <- function(medal_file, model, control = list(), alpha = 0.05) {
   processed <- tidy_mcmc(mcmc, medal_file)
   post_ranks <- rank_mcmc(processed, medal_file)
   probs <- post_prob_summary(processed)
-  ranks <- post_rank_rank(post_ranks) #strangely empty
+  ranks <- post_rank_rank(post_ranks) 
   res <- results(medal_file, probs, ranks)
   sig <- compute_rank_sig_matrix(post_ranks, alpha)
   
@@ -412,12 +411,12 @@ check_convergence <- function(bayesian_ranking) {
       req(input$param_type)
       all_params <- colnames(mcmc[[1]])
       
-      # Get previous param
+    
       prev_param <- input$param
       
       if (input$param_type == "global") {
         params <- all_params[!grepl("\\[[0-9]+\\]$", all_params)]
-        # Try to keep same global param
+        #same global param
         selected <- if (prev_param %in% params) prev_param else params[1]
         updateSelectInput(session, "param", choices = params, selected = selected)
       } else {
@@ -426,7 +425,7 @@ check_convergence <- function(bayesian_ranking) {
         params <- all_params[grepl(paste0("\\[", country_idx, "\\]$"), all_params)]
         
         if (length(params) > 0) {
-          # Try to keep same parameter type (p, q2, etc.) for new country
+          #Try to keep same parameter type (p, q2, etc.) for new country
           param_prefix <- sub("\\[.*\\]$", "", prev_param)
           candidate <- paste0(param_prefix, "[", country_idx, "]")
           selected <- if (candidate %in% params) candidate else params[1]
@@ -532,21 +531,20 @@ jags_model <- function(model, max_medals = NULL){
   }
   else if (model == "beta.conditional") { #This has been done with teh help of AI
     
-    # Auto-detect max_medals if not provided
+    # Auto-detect max_medals
     if (is.null(max_medals)) max_medals <- 4
     
-    # Build likelihood section dynamically
+    #Build likelihood section dynamically
     likelihood <- paste0(
       sapply(1:max_medals, function(k) {
         sprintf("    M%d[c] ~ dpois(N[c] * p%d[c])", k, k)
       }), collapse = "\n"
     )
     
-    # Build derived probabilities dynamically
+    # Build derived probabilities
     # p1[c] = p[c]*(1-q2)
     # p2[c] = p[c]*q2*(1-q3)
-    # p3[c] = p[c]*q2*q3*(1-q4)
-    # ...
+    # p3[c] = p[c]*q2*q3*(1-q4) ...
     derived_probs <- c(
       "    p1[c] = p[c]*(1-q2)",
       sapply(2:(max_medals-1), function(k) {
@@ -557,7 +555,7 @@ jags_model <- function(model, max_medals = NULL){
     )
     derived_probs <- paste(derived_probs, collapse = "\n")
     
-    # Build loglik sum dynamically
+    # oglik sum 
     loglik_lines <- sapply(1:max_medals, function(k) {
       sprintf("loglik%d[c] <- logdensity.pois(M%d[c], N[c]*p%d[c])", k, k, k)
     })
@@ -571,7 +569,6 @@ jags_model <- function(model, max_medals = NULL){
     )
     q_priors <- paste(q_priors, collapse = "\n")
     
-    # Assemble full model
     model_string <- sprintf("model {
   for (c in 1:n) {
   
@@ -604,17 +601,15 @@ jags_model <- function(model, max_medals = NULL){
   }
   else if (model == "beta.conditional.countryspecific") {
     
-    # Auto-detect max_medals if not provided
     if (is.null(max_medals)) max_medals <- 4
     
-    # Build likelihood section dynamically (SAME as conditional)
+    
     likelihood <- paste0(
       sapply(1:max_medals, function(k) {
         sprintf("    M%d[c] ~ dpois(N[c] * p%d[c])", k, k)
       }), collapse = "\n"
     )
     
-    # Build derived probabilities - ONLY DIFFERENCE: q2 becomes q2[c]
     derived_probs <- c(
       "    p1[c] <- p[c]*(1-q2[c])",  # q2[c] not q2
       sapply(2:(max_medals-1), function(k) {
@@ -629,21 +624,18 @@ jags_model <- function(model, max_medals = NULL){
       }
     )
     derived_probs <- paste(derived_probs, collapse = "\n")
-    
-    # Build loglik (SAME as conditional)
+
     loglik_lines <- sapply(1:max_medals, function(k) {
       sprintf("loglik%d[c] <- logdensity.pois(M%d[c], N[c]*p%d[c])", k, k, k)
     })
     loglik_lines <- paste(loglik_lines, collapse = "\n")
     loglik_sum <- paste0("loglik[c] <- ", paste0("loglik", 1:max_medals, "[c]", collapse = " + "))
-    
-    # Build q priors - q2 is now INSIDE loop, q3+ OUTSIDE
+ 
     q_priors <- sapply(3:max_medals, function(k) {
       sprintf("  q%d ~ dbeta(1, 1)", k)
     })
     q_priors <- paste(q_priors, collapse = "\n")
-    
-    # Assemble model
+
     model_string <- sprintf("model {
   for (c in 1:n) {
     # Likelihood
