@@ -1,6 +1,5 @@
 
-# Silently loading all required packages when sourced
-required_packages <- c("tidyverse", "dplyr", "rjags", "coda", "shiny", "ggplot2")
+required_packages <- c("tidyverse", "rjags", "coda", "shiny")
 
 # Function to load packages
 load_packages <- function() {
@@ -12,7 +11,6 @@ load_packages <- function() {
   invisible(sapply(required_packages, library, character.only = TRUE, quietly = TRUE))
 }
 
-# Auto-load packages when sourced
 load_packages()
 
 
@@ -66,20 +64,6 @@ jags_run <- function(jags,
   update(model.jags, n.iter = burn.in)
   coda.samples(model.jags, variable.names = var_names, n.iter = model.run, thin = thin)
 }
-
-
-# )
-# init_mix <- function() {
-#   list(
-#     u = runif(3, 0.1, 0.9),
-#     log_b = runif(3, 5, 12),
-#     X1 = runif(1, 0.3, 0.7),
-#     X2 = runif(1, 0.3, 0.7),
-#     X3 = runif(1, 0.3, 0.7),
-#     w = as.numeric(rdirichlet(1, rep(1, 3))),
-#     z = sample(1:3, n, replace = TRUE)
-#   )
-# }
 
 # 3) Function to tidy mcmc chains to go forward with analysis once satisfied convergence has been reached
 tidy_mcmc <- function(mcmc, medalcounts) {
@@ -318,7 +302,7 @@ bayesrank_run <- function(medal_file, model, control = list(), alpha = 0.05) {
   datalist <- make_model_list(medal_file, unique.model = unique_model)
   jags_txt <- jags_model(model, max_medals = max_medals)
   
-  cat("Max medals (non-zero):", max_medals, "\n")
+  cat("Max medals:", max_medals, "\n")
   
   if (unique_model) {
     model_data_vars <- c("M", "N", "n")
@@ -344,6 +328,8 @@ bayesrank_run <- function(medal_file, model, control = list(), alpha = 0.05) {
        posterior_ranks = post_ranks, probs = probs, ranks = ranks, results = res, sig = sig)
 }
 
+
+# Shiny App for visuallising trace plots etc. and assesing convergence
 check_convergence <- function(bayesian_ranking) {
   
   mcmc<- bayesian_ranking$mcmc
@@ -528,10 +514,10 @@ jags_model <- function(model, max_medals = NULL){
   b ~ dunif(10^4, 10^8) 
 }")
   }
-  else if (model == "beta.conditional") { #This has been done with teh help of AI
+  else if (model == "beta.conditional") {
     
-    # Auto-detect max_medals
-    if (is.null(max_medals)) max_medals <- 4
+   
+    if (is.null(max_medals)) max_medals <- 4 #defaulting to 4 medals if no max specified
     
     #Build likelihood section dynamically
     likelihood <- paste0(
@@ -755,6 +741,6 @@ for(k in 1:3) {
     )
   }
 else{
-  stop("Model type not recognized. Choose `beta`, `logit-normal` or `mixture-beta`.")
+  stop("Model type not recognized. Choose `beta.unique`, `beta.conditional`, `beta.conditional.countryspecific`, `logit-normal` or `mixture-beta`.")
 }
 }
