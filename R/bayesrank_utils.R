@@ -196,7 +196,6 @@ results <- function(medalcounts,
       "non_medal_winner"
     ))%>%
     select(country,
-           games = slug_game,
            iso_a3, 
            population = total_pop_july,
            medal_type,

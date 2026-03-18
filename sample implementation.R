@@ -1,8 +1,9 @@
 #Sourcing function files 
 source("https://raw.githubusercontent.com/Cormy1/Bayesian-Ranking/main/R/bayesrank_utils.R") 
 
-# Data file pre-processed to required structure - country, iso_a3, total_pop_july, competed, Medals.1.team (individual single medallists and team medals), Medals.2,Medals.3,Medals.4 ,... Medals.n
+# Data file pre-processed to required structure - country, iso_a3, total_pop_july, competed, Medals.1.team (individual single medallists and team medals), Medals.2,Medals.3,Medals.4 ,... Medals.n, Medals.unique (number of competitors to win medals)
 medal.file <- read.csv("data/Medalcounts_paris-2024.csv")
+names(medal.file)
 
 #run bayesian ranking - retuns list with mcmc sims along with all results and calculations pertaining to ranking
 br.cc <- bayesrank_run(medal_file = medal.file,
