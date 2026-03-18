@@ -111,8 +111,7 @@ rank_mcmc <- function(processed_mcmc, # this one
                       medalcounts # for removing non-medal winners for ranking
                       ){
   
-  country_data <- medalcounts  %>%
-    filter(competed == TRUE)
+  country_data <- medalcounts
   
   non_medals <- as.vector(country_data%>%
                           mutate(medal_winner = Medals.total > 0)%>%
@@ -185,7 +184,6 @@ results <- function(medalcounts,
                     ranks.bayesian){
   
   country_data <- medalcounts %>%  
-    filter(competed == TRUE)%>%
     mutate(medal_type = case_when(
       is.na(Medals.total) ~ "Non-medalist",
       Medals.total == 0 ~ "Non-medalist", 
@@ -275,7 +273,8 @@ compute_rank_sig_matrix <- function(post_ranks, alpha = 0.05) {
 
 
 #Running bayseina ranking in full
-bayesrank_run <- function(medal_file, model, control = list(), alpha = 0.05) {
+bayesrank_run <- function(medal_file, 
+                          model, control = list(), alpha = 0.05) {
   ctrl <- modifyList(list(burn_in = 100000, model_run = 300000, thin = 30, n_chains = 4), control)
   
   unique_model <- model == "beta.unique"
@@ -283,10 +282,10 @@ bayesrank_run <- function(medal_file, model, control = list(), alpha = 0.05) {
 
   
   if (!unique_model) {
-    medal_cols <- grep("^Medals\\.[2-9][0-9]*$", colnames(df), value = TRUE)
+    medal_cols <- grep("^Medals\\.[2-9][0-9]*$", colnames(medal_file), value = TRUE)
     max_medals <- 1  # at least M1
     for (col in medal_cols) {
-      if (sum(as.numeric(df[[col]]), na.rm = TRUE) > 0) {
+      if (sum(as.numeric(medal_file[[col]]), na.rm = TRUE) > 0) {
         k <- as.numeric(sub("^Medals\\.([0-9]+)$", "\\1", col))
         max_medals <- max(max_medals, k)
       }
@@ -339,7 +338,7 @@ check_convergence <- function(bayesian_ranking) {
   }
   sapply(required_libs, library, character.only = TRUE)
   
-  country_data <- medalcounts %>% filter(competed == TRUE)
+  country_data <- medal_file
   
   if (!inherits(mcmc, "mcmc.list")) {
     mcmc <- as.mcmc.list(lapply(mcmc, as.mcmc))
