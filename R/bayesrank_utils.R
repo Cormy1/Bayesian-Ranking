@@ -179,52 +179,50 @@ post_rank_rank <- function(post_ranks) {
 }
 
 # 7) Function to produce a df of all the results and summaries of the Bayesian ranking algorithm
-results <- function(medalcounts,
-                    probs.bayesian, 
-                    ranks.bayesian){
+results <- function(medalcounts, probs.bayesian, ranks.bayesian) {
+  
+  # Identify key columns dynamically
+  medal_cols <- medalcounts %>% select(starts_with("Medals.")) %>% names()
+  team_col <- medal_cols[which(grepl("\\.team$", medal_cols))[1]]
+  single_medal_col <- medal_cols[which(grepl("^Medals\\.1\\.team$", medal_cols))[1]]
+  total_col <- medal_cols[which(medal_cols == "Medals.total")[1]]
+  other_medal_cols <- setdiff(medal_cols[!medal_cols %in% c(total_col, single_medal_col)], team_col)
   
   country_data <- medalcounts %>%  
-    mutate(medal_type = case_when(
-      is.na(Medals.total) ~ "Non-medalist",
-      Medals.total == 0 ~ "Non-medalist", 
-      Medals.total != Medals.1.team ~ "Multi-medal winners",
-      TRUE ~ "Single medal winners"
-    ),
-    medal_winner = if_else(
-      replace_na(Medals.total, 0) > 0,
-      "medal_winner",
-      "non_medal_winner"
-    ))%>%
-    select(country,
-           iso_a3, 
-           population = total_pop_july,
-           medal_type,
-           medal_winner,
-           medal_total = Medals.total,
-           medals_1 = Medals.1.team,
-           medals_2 = Medals.2, 
-           medals_3 = Medals.3, 
-           medals_4 = Medals.4, 
-           medals_5 = Medals.5, # Wasn't any here but will leave for future proofing 
-           medals_1.team = Medals.team) %>%# Recorded and modelled as single medals but were won in a team event
-    arrange(-medal_total)%>%
-    mutate(rank_total = row_number(), 
-           medals.multi.winners = medals_2+medals_3+medals_4+medals_5)
+    mutate(
+      medal_type = case_when(
+        is.na(.data[[total_col]]) ~ "Non-medalist",
+        .data[[total_col]] == 0 ~ "Non-medalist", 
+        .data[[total_col]] != .data[[single_medal_col]] ~ "Multi-medal winners",
+        TRUE ~ "Single medal winners"
+      ),
+      medal_winner = if_else(replace_na(.data[[total_col]], 0) > 0, "medal_winner", "non_medal_winner")
+    ) %>%
+    select(
+      country, iso_a3, population = total_pop_july, medal_type, medal_winner,
+      medal_total = all_of(total_col),
+      medals_1 = all_of(single_medal_col),
+      medals_1.team = all_of(team_col),
+      all_of(other_medal_cols)
+    ) %>%
+    arrange(-medal_total) %>%
+    mutate(
+      rank_total = row_number(), 
+      medals.multi.winners = rowSums(across(all_of(other_medal_cols)), na.rm = TRUE)
+    )
   
   df1 <- left_join(country_data, probs.bayesian, by = "iso_a3")
-  
   df2 <- left_join(df1, ranks.bayesian, by = "iso_a3")
   
-  df2 %>% mutate(observed_mpm = ifelse(medal_total > 0, (medal_total / population) * 1e6, 0),
-                 median_estimate_mpm =  (p_median * 1e6), 
-                 mean_estimate_mpm =  (p_mean * 1e6), # just adding in as extra 
-                 estimate_mpm_credlow = p_credlow*1e6,
-                 estimate_mpm_credhigh = p_credhigh*1e6
-  ) %>%
-    mutate(rank_pc = rank(-observed_mpm, ties.method = "first", na.last = "keep"))
-  
-  
-  
+  df2 %>% 
+    mutate(
+      observed_mpm = ifelse(medal_total > 0, (medal_total / population) * 1e6, 0),
+      median_estimate_mpm = p_median * 1e6, 
+      mean_estimate_mpm = p_mean * 1e6,
+      estimate_mpm_credlow = p_credlow * 1e6,
+      estimate_mpm_credhigh = p_credhigh * 1e6,
+      rank_pc = rank(-observed_mpm, ties.method = "first", na.last = "keep")
+    )
 }
 
 
@@ -436,12 +434,17 @@ check_convergence <- function(bayesian_ranking) {
       if (country_num > nrow(country_data)) return(NULL)
       
       row <- country_data[country_num, ]
+      
+      other_medal_cols <- names(row)[grepl("^Medals\\.[0-9]+$", names(row))]
+      other_medal_cols <- other_medal_cols[as.integer(sub("Medals\\.", "", other_medal_cols)) >= 2]
+      multi_medal_count <- rowSums(row[, other_medal_cols, drop = FALSE], na.rm = TRUE)
+      
       div(style = "padding: 12px; margin: 10px 0; border-radius: 4px; background: #f8f9fa; 
-                 border-left: 4px solid #6c757d;",
+               border-left: 4px solid #6c757d;",
           h5(strong(row$country)),
           p(paste("Population:", format(row$total_pop_july, big.mark = ","))),
           p(paste("Medals:", row$Medals.total, "(", row$Medals.unique, "reps)")),
-          p(paste("Multi-medal:", row$Medals.2 + row$Medals.3 + row$Medals.4 + row$Medals.5)))
+          p(paste("Multi-medal:", multi_medal_count)))
     })
     
     chain_vals <- reactive({
