@@ -167,12 +167,12 @@ post_rank_rank <- function(post_ranks) {
   
   data.frame(
     iso_a3 = names(post),
-    rank_mean = as.numeric(average_ranks),
-    rank_median = as.numeric(median_ranks),
-    rank_credlow = as.numeric(cred_ranks[1, ]),
-    rank_credhigh = as.numeric(cred_ranks[2, ]),
-    rank_mean_beta = rank(average_ranks),
-    rank_median_beta = rank(median_ranks),
+    rank_postdist.mean = as.numeric(average_ranks),
+    rank_postdist.median = as.numeric(median_ranks),
+    rank_postdist.credlow = as.numeric(cred_ranks[1, ]),
+    rank_postdist.credhigh = as.numeric(cred_ranks[2, ]),
+    rank_mean.order = rank(average_ranks, ties.method = "first"),
+    rank_median.order = rank(median_ranks, ties.method = "first"),
     row.names = NULL,
     stringsAsFactors = FALSE
   )
@@ -207,7 +207,7 @@ results <- function(medalcounts, probs.bayesian, ranks.bayesian) {
     ) %>%
     arrange(-medal_total) %>%
     mutate(
-      rank_total = row_number(), 
+      rank_total = rank(-medal_total, ties.method = "first"), 
       medals.multi.winners = rowSums(across(all_of(other_medal_cols)), na.rm = TRUE)
     )
   
@@ -217,11 +217,11 @@ results <- function(medalcounts, probs.bayesian, ranks.bayesian) {
   df2 %>% 
     mutate(
       observed_mpm = ifelse(medal_total > 0, (medal_total / population) * 1e6, 0),
-      median_estimate_mpm = p_median * 1e6, 
-      mean_estimate_mpm = p_mean * 1e6,
-      estimate_mpm_credlow = p_credlow * 1e6,
-      estimate_mpm_credhigh = p_credhigh * 1e6,
-      rank_pc = rank(-observed_mpm, ties.method = "first", na.last = "keep")
+      estimate_mpm.median = p_median * 1e6, 
+      estimate_mpm.mean = p_mean * 1e6,
+      estimate_mpm.credlow = p_credlow * 1e6,
+      estimate_mpm.credhigh = p_credhigh * 1e6,
+      rank_perpcap = rank(-observed_mpm, ties.method = "first")
     )
 }
 
