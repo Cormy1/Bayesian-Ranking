@@ -16,7 +16,7 @@ load_packages()
 
 #' 1) Function to turn the suitably structured dataset into a list object for jags mcmc sampling
 make_model_list <- function(medalcounts, unique.model = FALSE) {
-  df <- read.csv(medalcounts) %>% filter(competed == TRUE)
+  df <- medalcounts
   
   m <- df$Medals.unique
   population <- as.numeric(df$total_pop_july)
@@ -67,7 +67,7 @@ jags_run <- function(jags,
 
 # 3) Function to tidy mcmc chains to go forward with analysis once satisfied convergence has been reached
 tidy_mcmc <- function(mcmc, medalcounts) {
-  medalcounts <- read.csv(medalcounts) %>% dplyr::filter(competed == TRUE)
+
   
   # Coerce to mcmc.list
   if (inherits(mcmc, "mcmc")) mcmc <- coda::mcmc.list(mcmc)
@@ -110,8 +110,6 @@ tidy_mcmc <- function(mcmc, medalcounts) {
 rank_mcmc <- function(processed_mcmc, # this one
                       medalcounts # for removing non-medal winners for ranking
                       ){
-  
-  medalcounts <- read.csv(medalcounts)
   
   country_data <- medalcounts  %>%
     filter(competed == TRUE)
@@ -186,7 +184,6 @@ results <- function(medalcounts,
                     probs.bayesian, 
                     ranks.bayesian){
   
-  medalcounts <- read.csv(medalcounts)
   country_data <- medalcounts %>%  
     filter(competed == TRUE)%>%
     mutate(medal_type = case_when(
@@ -283,8 +280,7 @@ bayesrank_run <- function(medal_file, model, control = list(), alpha = 0.05) {
   
   unique_model <- model == "beta.unique"
   
- 
-  df <- read.csv(medal_file) %>% filter(competed == TRUE)
+
   
   if (!unique_model) {
     medal_cols <- grep("^Medals\\.[2-9][0-9]*$", colnames(df), value = TRUE)
@@ -343,7 +339,6 @@ check_convergence <- function(bayesian_ranking) {
   }
   sapply(required_libs, library, character.only = TRUE)
   
-  medalcounts <- read.csv(medal_file)
   country_data <- medalcounts %>% filter(competed == TRUE)
   
   if (!inherits(mcmc, "mcmc.list")) {
