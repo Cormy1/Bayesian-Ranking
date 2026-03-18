@@ -369,18 +369,34 @@ check_convergence <- function(bayesian_ranking) {
     
     axis_limits <- reactive({
       req(input$param)
-      chain_vals <- as.numeric(mcmc[[1]][, input$param])
-      posterior_range <- range(chain_vals, na.rm = TRUE)
+      
+      # Collect values across all chains
+      all_vals <- unlist(lapply(mcmc, function(ch) as.numeric(ch[, input$param])))
+      posterior_range <- range(all_vals, na.rm = TRUE)
       pad <- (posterior_range[2] - posterior_range[1]) * 0.05
       
-      if (grepl("^q2\\[[0-9]+\\]$", input$param)) {
-        list(x = c(0, 0.2), y = c(0, 50))
-      } else if (grepl("^p\\[[0-9]+\\]$", input$param)) {
-        list(x = c(0, 2e-6), y = c(0, 4e6))
-      } else {
-        list(x = c(posterior_range[1] - pad, posterior_range[2] + pad), y = NULL)
-      }
+      y_max <- max(density(all_vals)$y) * 1.1
+      
+      list(
+        x = c(posterior_range[1] - pad, posterior_range[2] + pad),
+        y = c(0, y_max)
+      )
     })
+    
+    # axis_limits <- reactive({
+    #   req(input$param)
+    #   chain_vals <- as.numeric(mcmc[[1]][, input$param])
+    #   posterior_range <- range(chain_vals, na.rm = TRUE)
+    #   pad <- (posterior_range[2] - posterior_range[1]) * 0.05
+    #   
+    #   if (grepl("^q2\\[[0-9]+\\]$", input$param)) {
+    #     list(x = c(0, 0.2), y = c(0, 50))
+    #   } else if (grepl("^p\\[[0-9]+\\]$", input$param)) {
+    #     list(x = c(0, 2e-6), y = c(0, 4e6))
+    #   } else {
+    #     list(x = c(posterior_range[1] - pad, posterior_range[2] + pad), y = NULL)
+    #   }
+    # })
     
     
     observe({
